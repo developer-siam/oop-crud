@@ -9,6 +9,31 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
+
+	<!-- Form data management -->
+	<?php
+		/**
+		 * value receive from student form
+		 */
+		if (isset($_POST['submit'])) {
+			echo $name=$_POST['name'];
+			echo $email=$_POST['email'];
+			echo $cell=$_POST['cell'];
+
+
+
+			/**
+			 * photo receive from student form 
+			 */
+			$photo=$_FILES['photo'];
+		}
+
+
+
+
+
+
+	 ?>
 	
 	
 
