@@ -1,3 +1,20 @@
+<?php require_once('vendor/autoload.php') ?>
+<?php 
+	// class use
+	use App\controllers\Student;
+
+
+
+
+
+	/**
+	 * class instance
+	 */
+	$student = new Student;
+
+
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +51,8 @@
 				$mess="<p class='alert alert-danger'>All fields are required to fill !<button class='btn btn-primary btn-sm close' data-dismiss='alert'>&times</button></p>";
 			}elseif (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
 				$mess="<p class='alert alert-danger'>E-mail must be a valid E-mail !<button class='btn btn-primary btn-sm close' data-dismiss='alert'>&times</button></p>";
+			}else{
+				$student -> addNewStudent($name,$email,$cell,$photo);
 			}
 		}
 
