@@ -17,6 +17,28 @@
 		private function dbConnect(){
 			return $this -> connection = new mysqli($this -> host,$this -> user,$this -> pass,$this -> db);
 		}
+
+		//generate unique file name
+		public function fileUpload($photo,$location='',$file_type=['jpg','jpeg','gif','png']){
+			$photo['name'];
+			$photo['tmp_name'];
+			$photo['size'];
+			//dividing file extension 
+			$file_array=explode('.', $photo['name']);
+			$file_ext=strtolower(end($file_array));
+
+			//unique file name
+			$unique_file_name=md5(time().rand()).'.'.$file_ext;
+
+			//now uploading file to the destination
+			move_uploaded_file($photo['tmp_name'],$location.$unique_file_name);
+			return $unique_file_name;
+			
+		}
+
+
+
+
 		public function insert($table, array $data){
 
 			//dividing array kyes from $data array
