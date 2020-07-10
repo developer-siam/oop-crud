@@ -16,9 +16,9 @@
 		 * value receive from student form
 		 */
 		if (isset($_POST['submit'])) {
-			echo $name=$_POST['name'];
-			echo $email=$_POST['email'];
-			echo $cell=$_POST['cell'];
+			$name=$_POST['name'];
+			$email=$_POST['email'];
+			$cell=$_POST['cell'];
 
 
 
@@ -26,6 +26,15 @@
 			 * photo receive from student form 
 			 */
 			$photo=$_FILES['photo'];
+
+			/**
+			 * form validation
+			 */
+			if (empty($name) || empty($email) || empty($cell)) {
+				$mess="<p class='alert alert-danger'>All fields are required to fill !<button class='btn btn-primary btn-sm close' data-dismiss='alert'>&times</button></p>";
+			}elseif (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+				$mess="<p class='alert alert-danger'>E-mail must be a valid E-mail !<button class='btn btn-primary btn-sm close' data-dismiss='alert'>&times</button></p>";
+			}
 		}
 
 
@@ -41,6 +50,11 @@
 		<a class="btn btn-primary btn-sm" href="table.php">All students</a>
 		<div class="card shadow">
 			<div class="card-body">
+				<?php 
+					if (isset($mess)) {
+						echo $mess;
+					}
+				 ?>
 				<h2>Sign Up</h2>
 				<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
