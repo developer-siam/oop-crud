@@ -52,7 +52,7 @@
 			}elseif (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
 				$mess="<p class='alert alert-danger'>E-mail must be a valid E-mail !<button class='btn btn-primary btn-sm close' data-dismiss='alert'>&times</button></p>";
 			}else{
-				$student -> addNewStudent($name,$email,$cell,$photo);
+				$mess=$student -> addNewStudent($name,$email,$cell,$photo);
 			}
 		}
 
