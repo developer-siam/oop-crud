@@ -37,6 +37,16 @@
 				return $data;
 			}	
 		}
+
+		/**
+		 * Delete student from student table
+		 */
+		public function deleteStudent($id){
+			$data=$this -> delete('students',$id);
+			if ($data) {
+				return "<p class='alert alert-success'>Student deleted successfully !<button class='btn btn-primary btn-sm close' data-dismiss='alert'>&times</button></p>";
+			}
+		}
 		
 		
 		

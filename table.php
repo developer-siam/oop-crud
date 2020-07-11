@@ -14,6 +14,18 @@
 
 
 
+	/**
+	 * Delete student from student table
+	 */
+	//Get the delete id from the URL
+	if (isset($_GET['id'])) {
+		$id=$_GET['id'];
+
+		//delete
+		$mess=$student -> deleteStudent($id);
+	}
+	
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +42,15 @@
 	
 
 	<div class="wrap-table ">
+
+
+		<?php 
+			if (isset($mess)) {
+				echo $mess;
+			}
+		?>	
+		
+
 		<a class="btn btn-primary btn-sm" href="index.php">Add new students</a>
 		<div class="card shadow">
 			<div class="card-body">
@@ -68,7 +89,7 @@
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
+								<a class="btn btn-sm btn-danger" href="?id=<?php echo $fetch_data['id']; ?>">Delete</a>
 							</td>
 						</tr>
 						

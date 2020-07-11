@@ -104,6 +104,19 @@
 		}
 
 
+		/**
+		 * Delete  from  table
+		 */
+		protected function delete($table_name,$id){
+			//query for data delete from table 
+			$sql="DELETE FROM $table_name WHERE id='$id'";
+			$data=$this -> dbConnect() -> query($sql);
+			if ($data) {
+				return true;
+			}
+		}
+
+
 
 
 
