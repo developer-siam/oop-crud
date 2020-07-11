@@ -19,7 +19,7 @@
 		}
 
 		//generate unique file name
-		public function fileUpload($photo,$location='',$file_type=['jpg','jpeg','gif','png']){
+		protected function fileUpload($photo,$location='',$file_type=['jpg','jpeg','gif','png']){
 			$photo['name'];
 			$photo['tmp_name'];
 			$photo['size'];
@@ -39,7 +39,7 @@
 
 
 
-		public function insert($table, array $data){
+		protected function insert($table, array $data){
 
 			//dividing array kyes from $data array
 			$array_kyes = array_keys($data);
