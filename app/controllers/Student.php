@@ -27,5 +27,32 @@
 			}
 
 		}
+
+		/**
+		 * get all students information from students table
+		 */
+		public function allStudent(){
+			$data=$this -> all('students','DESC');
+			if ($data) {
+				return $data;
+			}	
+		}
+		
+		
 		
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

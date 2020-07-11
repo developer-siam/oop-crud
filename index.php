@@ -40,7 +40,7 @@
 
 
 			/**
-			 * photo receive from student form 
+			 * photo's file receive from student form 
 			 */
 			$photo=$_FILES['photo'];
 

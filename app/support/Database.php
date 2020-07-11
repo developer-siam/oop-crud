@@ -13,12 +13,31 @@
 		private $db='obj';
 		private $connection;
 
-		//database connection
+		/**
+		 * database connection
+		 */
 		private function dbConnect(){
 			return $this -> connection = new mysqli($this -> host,$this -> user,$this -> pass,$this -> db);
 		}
 
-		//generate unique file name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/**
+		 * generate unique file name and upload file
+		 */
 		protected function fileUpload($photo,$location='',$file_type=['jpg','jpeg','gif','png']){
 			$photo['name'];
 			$photo['tmp_name'];
@@ -37,8 +56,9 @@
 		}
 
 
-
-
+		/**
+		 * data insert into table
+		 */
 		protected function insert($table, array $data){
 
 			//dividing array kyes from $data array
@@ -61,13 +81,26 @@
 
 
 
-			//query for data insert to student table 
+			//query for data insert to table 
 			$sql="INSERT INTO $table ($col) VALUES ($form_values)";
 			$insert=$this -> dbConnect() -> query($sql);
 			if ($insert) {
 				return true;
 			}
 
+		}
+
+
+		/**
+		 * get all information from table
+		 */
+		protected function all($table_name,$order_by){
+			//query for data get from table 
+			$sql="SELECT * FROM $table_name ORDER BY id $order_by";
+			$data=$this -> dbConnect() -> query($sql);
+			if ($data) {
+				return $data;
+			}
 		}
 
 
