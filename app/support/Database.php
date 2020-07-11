@@ -115,6 +115,16 @@
 				return true;
 			}
 		}
+		/**show single student data from table
+		 */
+		protected function find($table_name,$id){
+			//query for get data from table 
+			$sql="SELECT * FROM $table_name WHERE id='$id'";
+			$data=$this -> dbConnect() -> query($sql);
+			if ($data) {
+				return $data;
+			}
+		}
 
 
 

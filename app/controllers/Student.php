@@ -47,7 +47,15 @@
 				return "<p class='alert alert-success'>Student deleted successfully !<button class='btn btn-primary btn-sm close' data-dismiss='alert'>&times</button></p>";
 			}
 		}
-		
+		/**
+		 * Show single student's data
+		 */
+		public function singleStudent($id){
+			$data=$this -> find("students",$id);
+			if ($data) {
+				return $data -> fetch_assoc();
+			}
+		}
 		
 		
 	}
