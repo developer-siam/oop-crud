@@ -125,8 +125,19 @@
 				return $data;
 			}
 		}
+		/**
+		 * Student data update
+		 */
+		protected function update($table, $id,$data){
+			
+			//query for data update to table 
+			$sql="UPDATE $table SET $data WHERE id='$id'";
+			$insert=$this -> dbConnect() -> query($sql);
+			if ($insert) {
+				return true;
+			}
 
-
+		}
 
 
 

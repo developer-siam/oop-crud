@@ -88,7 +88,7 @@
 							<td><img src="media/img/students/<?php echo $fetch_data['photo']; ?>" alt=""></td>
 							<td>
 								<a class="btn btn-sm btn-info" href="view.php?id=<?php echo $fetch_data['id']; ?>">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
+								<a class="btn btn-sm btn-warning" href="edit.php?id=<?php echo $fetch_data['id']; ?>">Edit</a>
 								<a class="btn btn-sm btn-danger" href="?id=<?php echo $fetch_data['id']; ?>">Delete</a>
 							</td>
 						</tr>
